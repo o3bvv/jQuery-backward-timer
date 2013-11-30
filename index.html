@@ -5,19 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>jQuery-backward-timer by oblalex</title>
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="javascripts/scale.fix.js"></script>
+    <link rel="stylesheet" href="demo/stylesheets/styles.css">
+    <link rel="stylesheet" href="demo/stylesheets/pygment_trac.css">
+    <script src="demo/javascripts/scale.fix.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script src="lib/jquery-backward-timer.min.js"></script>
   </head>
   <body>
     <div class="wrapper">
       <header>
-        <h1>jQuery-backward-timer</h1>
+        <h1>jQuery-backward-timer v1.1</h1>
         <p>jQuery plugin providing backward timer facilities</p>
         <p class="view"><a href="https://github.com/oblalex/jQuery-backward-timer">View the Project on GitHub <small>oblalex/jQuery-backward-timer</small></a></p>
         <ul>
@@ -27,14 +30,452 @@
         </ul>
       </header>
       <section>
-        <p>Here will be plugin usage examples.</p>
+        <p>
+          Hello! This is a demo page of jQuery-backward-timer. It is a small
+          plugin for <a href='http://jquery.com/'>jQuery</a> JavaScript library.
+          As you may have already guessed, this plugin gives an ability to
+          create controlled backward timers on web pages.
+        </p>
+        <p>
+          With this plugin you will be able to:
+        </p>
+        <ul>
+          <li>Start, cancel, resume and reset timer.</li>
+          <li>Specify timer's timeout.</li>
+          <li>Set output format.</li>
+          <li>Handle timer's events of ticking and exhausting.</li>
+        </ul>
+        <p>
+          Before you will start using this plugin, make sure you've included
+          jQuery at first:
+        </p>
+        <!-- HTML generated using hilite.me -->
+        <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #1e90ff; font-weight: bold">&lt;script </span><span style="color: #1e90ff">src=</span><span style="color: #aa5500">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js&quot;</span><span style="color: #1e90ff; font-weight: bold">&gt;&lt;/script&gt;</span>
+<span style="color: #1e90ff; font-weight: bold">&lt;script </span><span style="color: #1e90ff">src=</span><span style="color: #aa5500">&quot;lib/jquery-backward-timer.min.js&quot;</span><span style="color: #1e90ff; font-weight: bold">&gt;&lt;/script&gt;</span>
+</pre></div>
+
+
+        <br/>
+        <p>
+          You can use 'div' or 'span' or any other element as a container to
+          render of your timer:
+        </p>
+        <!-- HTML generated using hilite.me -->
+        <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #1e90ff; font-weight: bold">&lt;span</span> <span style="color: #1e90ff">id=</span><span style="color: #aa5500">&#39;timer_0&#39;</span><span style="color: #1e90ff; font-weight: bold">&gt;&lt;/span&gt;</span>
+<span style="color: #1e90ff; font-weight: bold">&lt;div</span> <span style="color: #1e90ff">id=</span><span style="color: #aa5500">&#39;timer_1&#39;</span><span style="color: #1e90ff; font-weight: bold">&gt;&lt;/div&gt;</span>
+</pre></div>
+
+        <br/>
+        <p>
+          Then you can easily make an initialization:
+        </p>
+        <!-- HTML generated using hilite.me -->
+        <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">$(<span style="color: #aa5500">&#39;#timer_0&#39;</span>).backward_timer()
+$(<span style="color: #aa5500">&#39;#timer_1&#39;</span>).backward_timer()
+</pre></div>
+
+        <!-- Default -->
+        <h5>Default</h5>
+        <p>
+          By default, timer has a timeout of 5 seconds, output format is
+          'H:MM:SS' and initial value is the representation of the initial
+          timeout.
+        </p>
+        <p>
+          If you have cancelled the timer, you can resume it by starting it
+          again.
+        </p>
+        <p>
+          When the timer is exhaused and you need to rerun it, reset it first.
+          You can also reset the timer while it is running.
+        </p>
+        <div class='timer_block'>
+          <div class='controls'>
+            <a href="javascript:void(0)" class="start_btn" id='start_0'>Start</a>
+            <a href="javascript:void(0)" class="cancel_btn" id='cancel_0'>Cancel</a>
+            <a href="javascript:void(0)" class="reset_btn" id='reset_0'>Reset</a>
+          </div>
+          <span id='timer_0' class='timer'>value placeholder</span>
+
+          <script type="text/javascript">
+            $('#timer_0').backward_timer()
+
+            $('#start_0').click(function() {
+              $('#timer_0').backward_timer('start')
+            })
+            $('#cancel_0').click(function() {
+              $('#timer_0').backward_timer('cancel')
+            })
+            $('#reset_0').click(function() {
+              $('#timer_0').backward_timer('reset')
+            })
+          </script>
+        </div>
+        <p>
+          The source code for the example above is listed below. Take a look
+          at timer's initialization at the line #10.
+        </p>
+        <!-- HTML generated using hilite.me -->
+        <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #1e90ff; font-weight: bold">&lt;div</span> <span style="color: #1e90ff">class=</span><span style="color: #aa5500">&#39;timer_block&#39;</span><span style="color: #1e90ff; font-weight: bold">&gt;</span>
+  <span style="color: #1e90ff; font-weight: bold">&lt;div</span> <span style="color: #1e90ff">class=</span><span style="color: #aa5500">&#39;controls&#39;</span><span style="color: #1e90ff; font-weight: bold">&gt;</span>
+    <span style="color: #1e90ff; font-weight: bold">&lt;a</span> <span style="color: #1e90ff">href=</span><span style="color: #aa5500">&quot;javascript:void(0)&quot;</span> <span style="color: #1e90ff">class=</span><span style="color: #aa5500">&quot;start_btn&quot;</span> <span style="color: #1e90ff">id=</span><span style="color: #aa5500">&#39;start_0&#39;</span><span style="color: #1e90ff; font-weight: bold">&gt;</span>Start<span style="color: #1e90ff; font-weight: bold">&lt;/a&gt;</span>
+    <span style="color: #1e90ff; font-weight: bold">&lt;a</span> <span style="color: #1e90ff">href=</span><span style="color: #aa5500">&quot;javascript:void(0)&quot;</span> <span style="color: #1e90ff">class=</span><span style="color: #aa5500">&quot;cancel_btn&quot;</span> <span style="color: #1e90ff">id=</span><span style="color: #aa5500">&#39;cancel_0&#39;</span><span style="color: #1e90ff; font-weight: bold">&gt;</span>Cancel<span style="color: #1e90ff; font-weight: bold">&lt;/a&gt;</span>
+    <span style="color: #1e90ff; font-weight: bold">&lt;a</span> <span style="color: #1e90ff">href=</span><span style="color: #aa5500">&quot;javascript:void(0)&quot;</span> <span style="color: #1e90ff">class=</span><span style="color: #aa5500">&quot;reset_btn&quot;</span> <span style="color: #1e90ff">id=</span><span style="color: #aa5500">&#39;reset_0&#39;</span><span style="color: #1e90ff; font-weight: bold">&gt;</span>Reset<span style="color: #1e90ff; font-weight: bold">&lt;/a&gt;</span>
+  <span style="color: #1e90ff; font-weight: bold">&lt;/div&gt;</span>
+  <span style="color: #1e90ff; font-weight: bold">&lt;span</span> <span style="color: #1e90ff">id=</span><span style="color: #aa5500">&#39;timer_0&#39;</span> <span style="color: #1e90ff">class=</span><span style="color: #aa5500">&#39;timer&#39;</span><span style="color: #1e90ff; font-weight: bold">&gt;</span>value placeholder<span style="color: #1e90ff; font-weight: bold">&lt;/span&gt;</span>
+
+  <span style="color: #1e90ff; font-weight: bold">&lt;script </span><span style="color: #1e90ff">type=</span><span style="color: #aa5500">&quot;text/javascript&quot;</span><span style="color: #1e90ff; font-weight: bold">&gt;</span>
+    $(<span style="color: #aa5500">&#39;#timer_0&#39;</span>).backward_timer()
+
+    $(<span style="color: #aa5500">&#39;#start_0&#39;</span>).click(<span style="color: #0000aa">function</span>() {
+      $(<span style="color: #aa5500">&#39;#timer_0&#39;</span>).backward_timer(<span style="color: #aa5500">&#39;start&#39;</span>)
+    })
+    $(<span style="color: #aa5500">&#39;#cancel_0&#39;</span>).click(<span style="color: #0000aa">function</span>() {
+      $(<span style="color: #aa5500">&#39;#timer_0&#39;</span>).backward_timer(<span style="color: #aa5500">&#39;cancel&#39;</span>)
+    })
+    $(<span style="color: #aa5500">&#39;#reset_0&#39;</span>).click(<span style="color: #0000aa">function</span>() {
+      $(<span style="color: #aa5500">&#39;#timer_0&#39;</span>).backward_timer(<span style="color: #aa5500">&#39;reset&#39;</span>)
+    })
+  <span style="color: #1e90ff; font-weight: bold">&lt;/script&gt;</span>
+<span style="color: #1e90ff; font-weight: bold">&lt;/div&gt;</span>
+</pre></td></tr></table></div>
+
+
+        <!-- Setting timeout value -->
+        <h5>Setting timeout value</h5>
+        <p>
+          To specify timer's timeout value, pass an object with 'seconds'
+          attribure to the initialization function:
+        </p>
+        <!-- HTML generated using hilite.me -->
+        <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">$(<span style="color: #aa5500">&#39;#timer_1&#39;</span>).backward_timer({
+  seconds: <span style="color: #009999">45296</span>
+})
+</pre></div>
+
+        <br/>
+        <p>See an example:</p>
+        <div class='timer_block'>
+          <div class='controls'>
+            <a href="javascript:void(0)" class="start_btn" id='start_1'>Start</a>
+            <a href="javascript:void(0)" class="cancel_btn" id='cancel_1'>Cancel</a>
+            <a href="javascript:void(0)" class="reset_btn" id='reset_1'>Reset</a>
+          </div>
+          <span id='timer_1' class='timer'>value placeholder</span>
+
+          <script type="text/javascript">
+            $('#timer_1').backward_timer({
+              seconds: 45296
+            })
+            $('#start_1').click(function() {
+              $('#timer_1').backward_timer('start')
+            })
+            $('#cancel_1').click(function() {
+              $('#timer_1').backward_timer('cancel')
+            })
+            $('#reset_1').click(function() {
+              $('#timer_1').backward_timer('reset')
+            })
+          </script>
+        </div>
+
+        <!-- Setting output format -->
+        <h5>Setting output format</h5>
+        <p>
+          By default, timer's output format is 'h%:m%:s%', which results in
+          displaying hours without leading zero, minutes and seconds with
+          leading zero, all separated by colons.
+        </p>
+        <p>
+          If timer's timeout has days, then they will be converted to hours,
+          e.g.
+        </p>
+
+        <!-- HTML generated using hilite.me -->
+        <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">$(<span style="color: #aa5500">&#39;#timer_3&#39;</span>).backward_timer({
+  seconds: <span style="color: #009999">1417539</span>
+})
+</pre></div>
+        <br/>
+        <p>will result into:</p>
+        <div class='timer_block'>
+          <div class='controls'>
+            <a href="javascript:void(0)" class="start_btn" id='start_3'>Start</a>
+            <a href="javascript:void(0)" class="cancel_btn" id='cancel_3'>Cancel</a>
+            <a href="javascript:void(0)" class="reset_btn" id='reset_3'>Reset</a>
+          </div>
+          <span id='timer_3' class='timer'>value placeholder</span>
+
+          <script type="text/javascript">
+            $('#timer_3').backward_timer({
+              seconds: 1417539
+            })
+
+            $('#start_3').click(function() {
+              $('#timer_3').backward_timer('start')
+            })
+            $('#cancel_3').click(function() {
+              $('#timer_3').backward_timer('cancel')
+            })
+            $('#reset_3').click(function() {
+              $('#timer_3').backward_timer('reset')
+            })
+          </script>
+        </div>
+        <p>
+          If you want to display days explicitly, then you have to change
+          output format. Days pluralization is up to you. Below you can see the
+          initialization of the same timer as above, but with another output
+          format for handling days. Hours will have leading zero now.
+        </p>
+        <!-- HTML generated using hilite.me -->
+        <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">$(<span style="color: #aa5500">&#39;#timer_4&#39;</span>).backward_timer({
+  seconds: <span style="color: #009999">1417539</span>
+  , format: <span style="color: #aa5500">&#39;d%d h%:m%:s%&#39;</span>
+})
+</pre></div>
+        <br/>
+        <div class='timer_block'>
+          <div class='controls'>
+            <a href="javascript:void(0)" class="start_btn" id='start_4'>Start</a>
+            <a href="javascript:void(0)" class="cancel_btn" id='cancel_4'>Cancel</a>
+            <a href="javascript:void(0)" class="reset_btn" id='reset_4'>Reset</a>
+          </div>
+          <span id='timer_4' class='timer'>value placeholder</span>
+
+          <script type="text/javascript">
+            $('#timer_4').backward_timer({
+              seconds: 1417539
+              , format: 'd%d h%:m%:s%'
+            })
+
+            $('#start_4').click(function() {
+              $('#timer_4').backward_timer('start')
+            })
+            $('#cancel_4').click(function() {
+              $('#timer_4').backward_timer('cancel')
+            })
+            $('#reset_4').click(function() {
+              $('#timer_4').backward_timer('reset')
+            })
+          </script>
+        </div>
+        <p>
+          Actually, you may use any format and set placeholders for time
+          intervals in any order:
+        </p>
+        <!-- HTML generated using hilite.me -->
+        <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">$(<span style="color: #aa5500">&#39;#timer_5&#39;</span>).backward_timer({
+  seconds: <span style="color: #009999">1417539</span>
+  , format: <span style="color: #aa5500">&#39;{s% sec} [h% h] |d% d| &lt;m% min&gt;&#39;</span>
+})
+</pre></div>
+        <br/>
+        <div class='timer_block'>
+          <div class='controls'>
+            <a href="javascript:void(0)" class="start_btn" id='start_5'>Start</a>
+            <a href="javascript:void(0)" class="cancel_btn" id='cancel_5'>Cancel</a>
+            <a href="javascript:void(0)" class="reset_btn" id='reset_5'>Reset</a>
+          </div>
+          <span id='timer_5' class='timer'>value placeholder</span>
+
+          <script type="text/javascript">
+            $('#timer_5').backward_timer({
+              seconds: 1417539
+              , format: '{s% sec} [h% h] |d% d| <m% min>'
+            })
+
+            $('#start_5').click(function() {
+              $('#timer_5').backward_timer('start')
+            })
+            $('#cancel_5').click(function() {
+              $('#timer_5').backward_timer('cancel')
+            })
+            $('#reset_5').click(function() {
+              $('#timer_5').backward_timer('reset')
+            })
+          </script>
+        </div>
+
+        <!-- Handling event of exhausting -->
+        <h5>Handling event of exhausting</h5>
+        <p>
+          Very probably, you will want to do some action, when your timer is
+          exhausted. To make so, you can set 'on_exhausted' callback function
+          during plugin's initialization:
+        </p>
+        <!-- HTML generated using hilite.me -->
+        <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">$(<span style="color: #aa5500">&#39;#timer_6&#39;</span>).backward_timer({
+  on_exhausted: <span style="color: #0000aa">function</span>(timer) {
+    timer.<span style="color: #1e90ff">target</span>.<span style="color: #1e90ff">text</span>(<span style="color: #aa5500">&#39;I am exhausted. Reset me!&#39;</span>)
+  }
+})
+</pre></div>
+        <br/>
+        <p>
+          Callback function accepts 'timer' argument, which is an
+          instance of timer plugin. Its properties will be discussed later. Now
+          note, that it can access 'target' property, which in this case is
+          equal to calling $('#timer_6').
+        </p>
+        <div class='timer_block'>
+          <div class='controls'>
+            <a href="javascript:void(0)" class="start_btn" id='start_6'>Start</a>
+            <a href="javascript:void(0)" class="cancel_btn" id='cancel_6'>Cancel</a>
+            <a href="javascript:void(0)" class="reset_btn" id='reset_6'>Reset</a>
+          </div>
+          <span id='timer_6' class='timer'>value placeholder</span>
+
+          <script type="text/javascript">
+            $('#timer_6').backward_timer({
+              on_exhausted: function(timer) {
+                timer.target.text('I am exhausted. Reset me!')
+              }
+            })
+
+            $('#start_6').click(function() {
+              $('#timer_6').backward_timer('start')
+            })
+            $('#cancel_6').click(function() {
+              $('#timer_6').backward_timer('cancel')
+            })
+            $('#reset_6').click(function() {
+              $('#timer_6').backward_timer('reset')
+            })
+          </script>
+        </div>
+
+        <!-- Handling tick events -->
+        <h5>Handling tick events</h5>
+        <p>
+          If you need to perform some action on each tick, while your timer is
+          working, you can set a callback for that event as well.
+        </p>
+        <!-- HTML generated using hilite.me -->
+        <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">$(<span style="color: #aa5500">&#39;#timer_7&#39;</span>).backward_timer({
+  on_tick: <span style="color: #0000aa">function</span>(timer) {
+    var color = ((timer.<span style="color: #1e90ff">seconds_left</span> % <span style="color: #009999">2</span>) == <span style="color: #009999">0</span>)
+      ? <span style="color: #aa5500">&quot;#F00&quot;</span>
+      : <span style="color: #aa5500">&quot;#00F&quot;</span>
+    timer.<span style="color: #1e90ff">target</span>.<span style="color: #1e90ff">css</span>(<span style="color: #aa5500">&#39;color&#39;</span>, color)
+  }
+})
+</pre></div>
+        <br/>
+        <p>
+          This will change color of the timer's value each second. Give it a
+          try:
+        </p>
+        <div class='timer_block'>
+          <div class='controls'>
+            <a href="javascript:void(0)" class="start_btn" id='start_7'>Start</a>
+            <a href="javascript:void(0)" class="cancel_btn" id='cancel_7'>Cancel</a>
+            <a href="javascript:void(0)" class="reset_btn" id='reset_7'>Reset</a>
+          </div>
+          <span id='timer_7' class='timer'>value placeholder</span>
+
+          <script type="text/javascript">
+            $('#timer_7').backward_timer({
+              on_tick: function(timer) {
+                var color = ((timer.seconds_left % 2) == 0)
+                  ? "#F00"
+                  : "#00F"
+                timer.target.css('color', color)
+              }
+            })
+
+            $('#start_7').click(function() {
+              $('#timer_7').backward_timer('start')
+            })
+            $('#cancel_7').click(function() {
+              $('#timer_7').backward_timer('cancel')
+            })
+            $('#reset_7').click(function() {
+              $('#timer_7').backward_timer('reset')
+            })
+          </script>
+        </div>
+
+        <!-- Callback input arguments -->
+        <h5>Callback input arguments</h5>
+        <p>
+          As you may noticed, callback functions have 'timer' as an input
+          argument. It is an instance of the plugin applied to your element,
+          which was created during plugin's initialization. If you dir its
+          attributes (e.g., via 'console.dir(timer)') you will see all the guts
+          of the plugin:
+        </p>
+        <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">$.<span style="color: #1e90ff">backward_timer</span>
+    methods: Object
+        _check_leading_zero: <span style="color: #0000aa">function</span> (number) { ...
+        _on_tick: <span style="color: #0000aa">function</span> (prev_delay) { ...
+        _render_seconds: <span style="color: #0000aa">function</span> () { ...
+        _seconds_to_dhms: <span style="color: #0000aa">function</span> (seconds) { ...
+        cancel: <span style="color: #0000aa">function</span> () { ...
+        init: <span style="color: #0000aa">function</span> (options) { ...
+        reset: <span style="color: #0000aa">function</span> () { ...
+        start: <span style="color: #0000aa">function</span> () { ...
+        __proto__: Object
+    seconds_left: <span style="color: #009999">0</span>
+    settings: Object
+        format: <span style="color: #aa5500">&quot;h%:m%:s%&quot;</span>
+        on_exhausted: <span style="color: #0000aa">function</span> (timer) {}
+        on_tick: <span style="color: #0000aa">function</span> (timer) {}
+        seconds: <span style="color: #009999">5</span>
+    __proto__: Object
+    target: e.<span style="color: #1e90ff">fn</span>.<span style="color: #1e90ff">e</span>.<span style="color: #1e90ff">init</span>[<span style="color: #009999">1</span>]
+        <span style="color: #009999">0</span>: span#timer_6.<span style="color: #1e90ff">timer</span>
+        context: span#timer_6.<span style="color: #1e90ff">timer</span>
+        length: <span style="color: #009999">1</span>
+        __proto__: Object[<span style="color: #009999">0</span>]
+    timeout: <span style="color: #0000aa">undefined</span>
+    __proto__: Object
+</pre></div>
+        <br/>
+        <p>
+          Two of them you are familiar with. They are <b>'target'</b> and
+          <b>'seconds_left'</b>. Former is an object the plugin is applied to.
+          As you can see, it is a 'span' element with an ID of '#timer_6' and
+          with style a class 'timer'.
+          Latter is the current value of seconds, which are left before the
+          timer is considered to be exhausted. <b>'timeout'</b> is the ID of
+          current timer, created by '<a href='http://www.w3schools.com/jsref/met_win_settimeout.asp'>setTimeout()</a>' method. <b>'settings'</b> stores output format, initial
+          amount of seconds to count and a couple of callbacks, which were
+          discussed just in the last two examples. <b>'methods'</b> objects
+          containes all the public and private methods of the plugin.
+        </p>
+        <p>
+          So, here you are. At the end of the documentation for backward timer.
+          From now, you may know everything about it. Thanks for reading and
+          good luck with usage!
+        </p>
       </section>
     </div>
     <footer>
       <p>Project maintained by <a href="https://github.com/oblalex">oblalex</a></p>
-      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+      <p>Hosted on GitHub Pages &mdash; Basic theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
     </footer>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-    
   </body>
 </html>
