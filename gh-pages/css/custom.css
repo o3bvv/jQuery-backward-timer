@@ -21,8 +21,9 @@ header {
   margin-bottom: 3rem;
 }
 
-header > legend {
+header > span {
   color: #777;
+  font-weight: bold;
 }
 
 .buttons-panel {
