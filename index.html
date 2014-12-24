@@ -19,7 +19,7 @@
 <div class="container">
 
   <header class="row">
-    <h2>jQuery-backward-timer v1.1.1</h2>
+    <h2>jQuery-backward-timer v1.1.2</h2>
     <span>Little jQuery plugin which provides backward timer facilities</span>
   </header>
 
@@ -241,6 +241,39 @@
   </section>
 
   <section>
+    <h5>How to set timer's step</h5>
+    <p>
+      Timer's value is rendered each second by default. If it's too fast for
+      you, you can set timer's <tag>step</tag>&nbsp;(in&nbsp;seconds):
+    </p>
+    <code data-gist-id="70cb446e6562b164bd5a"
+          data-gist-file="example-6.js"
+          data-gist-hide-footer="true"></code>
+    <p>
+      Here we have a timer which works for 1 minute and renders own value each
+      5 seconds.
+    </p>
+    <div class='timer-block'>
+      <div class='controls'>
+        <a href="javascript:void(0)" class="button button-start" id='start_6'>Start</a>
+        <a href="javascript:void(0)" class="button button-cancel" id='cancel_6'>Cancel</a>
+        <a href="javascript:void(0)" class="button button-reset" id='reset_6'>Reset</a>
+      </div>
+      <span id='timer_6' class='timer'>value placeholder</span>
+    </div>
+    <p>
+      Number of seconds is usually multiple of timer's step. I.e., if we set
+      step to 5 then it will be nice to use number of seconds which is multiple
+      of 5:&nbsp;5,&nbsp;10,&nbsp;15,&nbsp;etc.
+    </p>
+    <p>
+      But this is not obligatory. For example, if you set 10 for seconds and 4
+      for step, timer will correctly count&nbsp;10,&nbsp;6,&nbsp;2,&nbsp;0.
+      Even if your step is greater than number of seconds, this is still valid.
+    </p>
+  </section>
+
+  <section>
     <h5>Callback argument: the man behind the curtain</h5>
     <p>
       As you may noticed, callback functions have&nbsp;<tag>timer</tag> as an
@@ -396,6 +429,22 @@ $(document).ready(function(){
   })
   $('#reset_5').click(function() {
     $('#timer_5').backward_timer('reset').css('color', '')
+  })
+
+  /* Example 6 ------------------------------------------------------------- */
+  $('#timer_6').backward_timer({
+    seconds: 60,
+    step: 5
+  })
+
+  $('#start_6').click(function() {
+    $('#timer_6').backward_timer('start')
+  })
+  $('#cancel_6').click(function() {
+    $('#timer_6').backward_timer('cancel')
+  })
+  $('#reset_6').click(function() {
+    $('#timer_6').backward_timer('reset')
   })
 
 })
