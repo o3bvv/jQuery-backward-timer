@@ -1,0 +1,189 @@
+body {
+  background: url("../images/fabric_of_squares_gray.png") repeat scroll 0% 0% transparent;
+  color: #444;
+}
+
+.container {
+  max-width: 850px;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  padding: 4rem 1rem 4rem 1rem;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.08);
+  background: none repeat scroll 0% 0% #FFF;
+  border: medium none;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+header > legend {
+  color: #777;
+}
+
+.buttons-panel {
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.download {
+  margin-left: 30px;
+}
+
+section {
+  padding: 0 30px 0 30px;
+}
+
+section h5 {
+  padding-left: 20px;
+  font-weight: bold;
+  margin-top: 45px;
+  border-bottom: 1px solid #eee;
+}
+
+p {
+  text-align: justify;
+  text-indent: 20px;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+ul {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+ul li {
+  margin-bottom: 3px;
+}
+
+tag {
+  padding: .2rem .5rem;
+  margin: 0 .2rem;
+  white-space: nowrap;
+  background: #F1F1F1;
+  border: 1px solid #E1E1E1;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+/* Timer controls ---------------------------------------------------------- */
+
+.timer-block {
+  height: 40px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  margin-left: 20px;
+}
+.timer {
+  font-family: monospace;
+  font-size: 20px;
+  line-height: 40px;
+  margin-left: 30px;
+}
+.controls {
+  float: left;
+}
+
+.button-start {
+  color: #FFF;
+  background-color: #2BD56E;
+  border-color: #2BD56E;
+}
+.button-start:hover,
+.button-start:focus {
+  color: #FFF;
+  background-color: #38B669;
+  border-color: #38B669;
+}
+
+.button-cancel {
+  color: #FFF;
+  background-color: #EA3C3C;
+  border-color: #EA3C3C;
+}
+.button-cancel:hover,
+.button-cancel:focus {
+  color: #FFF;
+  background-color: #D22F2F;
+  border-color: #D22F2F;
+}
+
+/* GitHub buttons for local needs ------------------------------------------ */
+
+.github-btn {
+  height: 20px;
+  overflow: hidden;
+  display: inline-block;
+}
+.gh-btn,
+.gh-ico {
+  float: left;
+}
+.gh-btn {
+  font: bold 11px/14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding: 2px 5px 2px 4px;
+  color: #333;
+  text-decoration: none;
+  text-shadow: 0 1px 0 #fff;
+  white-space: nowrap;
+  cursor: pointer;
+  border-radius: 3px;
+  background-color: #e6e6e6;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fafafa), to(#eaeaea));
+  background-image: -webkit-linear-gradient(#fafafa, #eaeaea);
+  background-image: -moz-linear-gradient(top, #fafafa, #eaeaea);
+  background-image: -ms-linear-gradient(#fafafa, #eaeaea);
+  background-image: -o-linear-gradient(#fafafa, #eaeaea);
+  background-image: linear-gradient(#fafafa, #eaeaea);
+  background-repeat: no-repeat;
+  border: 1px solid #d4d4d4;
+  border-bottom-color: #bcbcbc;
+}
+.gh-btn:hover,
+.gh-btn:focus,
+.gh-btn:active {
+  color: #fff;
+  text-decoration: none;
+  text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+  border-color: #518cc6 #518cc6 #2a65a0;
+  background-color: #3072b3;
+}
+.gh-btn:hover,
+.gh-btn:focus {
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#599bdc), to(#3072b3));
+  background-image: -webkit-linear-gradient(#599bdc, #3072b3);
+  background-image: -moz-linear-gradient(top, #599bdc, #3072b3);
+  background-image: -ms-linear-gradient(#599bdc, #3072b3);
+  background-image: -o-linear-gradient(#599bdc, #3072b3);
+  background-image: linear-gradient(#599bdc, #3072b3);
+}
+.gh-btn:active {
+  background-image: none;
+  -webkit-box-shadow: inset 0 2px 5px rgba(0,0,0,.10);
+  -moz-box-shadow: inset 0 2px 5px rgba(0,0,0,.10);
+  box-shadow: inset 0 2px 5px rgba(0,0,0,.10);
+}
+.gh-ico {
+  width: 14px;
+  height: 14px;
+  margin-right: 4px;
+  vertical-align: 3px;
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iMTMycHgiIGhlaWdodD0iNjZweCIgdmlld0JveD0iMCAwIDEzMiA2NiIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTMyIDY2IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBmaWxsPSIjMzMzMzMzIiBkPSJNMzMsMS44Yy0xNy43LDAtMzIsMTQuMy0zMiwzMmMwLDE0LjEsOS4yLDI2LjEsMjEuOSwzMC40DQoJYzEuNiwwLjMsMi4yLTAuNywyLjItMS41YzAtMC44LDAtMi44LDAtNS40Yy04LjksMS45LTEwLjgtNC4zLTEwLjgtNC4zYy0xLjUtMy43LTMuNi00LjctMy42LTQuN2MtMi45LTIsMC4yLTEuOSwwLjItMS45DQoJYzMuMiwwLjIsNC45LDMuMyw0LjksMy4zYzIuOSw0LjksNy41LDMuNSw5LjMsMi43YzAuMy0yLjEsMS4xLTMuNSwyLTQuM2MtNy4xLTAuOC0xNC42LTMuNi0xNC42LTE1LjhjMC0zLjUsMS4yLTYuMywzLjMtOC42DQoJYy0wLjMtMC44LTEuNC00LjEsMC4zLTguNWMwLDAsMi43LTAuOSw4LjgsMy4zYzIuNi0wLjcsNS4zLTEuMSw4LTEuMWMyLjcsMCw1LjUsMC40LDgsMS4xYzYuMS00LjEsOC44LTMuMyw4LjgtMy4zDQoJYzEuNyw0LjQsMC42LDcuNywwLjMsOC41YzIuMSwyLjIsMy4zLDUuMSwzLjMsOC42YzAsMTIuMy03LjUsMTUtMTQuNiwxNS44YzEuMSwxLDIuMiwyLjksMi4yLDUuOWMwLDQuMywwLDcuNywwLDguOA0KCWMwLDAuOSwwLjYsMS45LDIuMiwxLjVDNTUuOCw1OS45LDY1LDQ3LjksNjUsMzMuOEM2NSwxNi4xLDUwLjcsMS44LDMzLDEuOHoiLz4NCjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBmaWxsPSIjRkZGRkZGIiBkPSJNOTksMS44Yy0xNy43LDAtMzIsMTQuMy0zMiwzMmMwLDE0LjEsOS4yLDI2LjEsMjEuOSwzMC40DQoJYzEuNiwwLjMsMi4yLTAuNywyLjItMS41YzAtMC44LDAtMi44LDAtNS40Yy04LjksMS45LTEwLjgtNC4zLTEwLjgtNC4zYy0xLjUtMy43LTMuNi00LjctMy42LTQuN2MtMi45LTIsMC4yLTEuOSwwLjItMS45DQoJYzMuMiwwLjIsNC45LDMuMyw0LjksMy4zYzIuOSw0LjksNy41LDMuNSw5LjMsMi43YzAuMy0yLjEsMS4xLTMuNSwyLTQuM2MtNy4xLTAuOC0xNC42LTMuNi0xNC42LTE1LjhjMC0zLjUsMS4yLTYuMywzLjMtOC42DQoJYy0wLjMtMC44LTEuNC00LjEsMC4zLTguNWMwLDAsMi43LTAuOSw4LjgsMy4zYzIuNi0wLjcsNS4zLTEuMSw4LTEuMWMyLjcsMCw1LjUsMC40LDgsMS4xYzYuMS00LjEsOC44LTMuMyw4LjgtMy4zDQoJYzEuNyw0LjQsMC42LDcuNywwLjMsOC41YzIuMSwyLjIsMy4zLDUuMSwzLjMsOC42YzAsMTIuMy03LjUsMTUtMTQuNiwxNS44YzEuMSwxLDIuMiwyLjksMi4yLDUuOWMwLDQuMywwLDcuNywwLDguOA0KCWMwLDAuOSwwLjYsMS45LDIuMiwxLjVjMTIuNy00LjIsMjEuOS0xNi4yLDIxLjktMzAuNEMxMzEsMTYuMSwxMTYuNywxLjgsOTksMS44eiIvPg0KPC9zdmc+DQo=);
+  background-size: 28px 14px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+.gh-btn:hover .gh-ico,
+.gh-btn:focus .gh-ico,
+.gh-btn:active .gh-ico {
+  background-position: -14px 0;
+}
