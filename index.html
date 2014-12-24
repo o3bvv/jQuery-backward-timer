@@ -42,7 +42,7 @@
   </div>
 
   <section>
-    <h5>Overview</h5>
+    <h5><a href="#overview"></a>Overview</h5>
     <p>
       Hello! This is a demo page of jQuery-backward-timer. It is a small
       plugin for <a href='http://jquery.com/'>jQuery</a> JavaScript library.
@@ -82,7 +82,7 @@
   </section>
 
   <section>
-    <h5>Default initialization</h5>
+    <h5><a href="#default-initialization"></a>Default initialization</h5>
     <p>
       By default, timer has a timeout of 5 seconds, output format is
       'H:MM:SS' and initial value is the representation of the initial
@@ -115,7 +115,7 @@
   </section>
 
   <section>
-    <h5>How to set timeout value</h5>
+    <h5><a href="#how-to-set-timeout-value"></a>How to set timeout value</h5>
     <p>
       To specify timer's timeout value, pass an object with&nbsp;<tag>seconds</tag>
       attribure to the initialization function:
@@ -135,7 +135,7 @@
   </section>
 
   <section>
-    <h5>How to set output format</h5>
+    <h5><a href="#how-to-set-output-format"></a>How to set output format</h5>
     <p>
       By default, timer's output format is&nbsp;<tag>h%:m%:s%</tag>, which
       results in displaying hours without leading zero, minutes and seconds
@@ -192,7 +192,7 @@
   </section>
 
   <section>
-    <h5>Handling event of exhausting</h5>
+    <h5><a href="#handling-event-of-exhausting"></a>Handling event of exhausting</h5>
     <p>
       Very probably, you will want to do some action, when your timer is
       exhausted. To make so, you can set&nbsp;<tag>on_exhausted</tag> callback
@@ -218,7 +218,7 @@
   </section>
 
   <section>
-    <h5>Handling tick events</h5>
+    <h5><a href="#handling-tick-events"></a>Handling tick events</h5>
     <p>
       If you need to perform some action on each tick, while your timer is
       working, you can set a callback for that event as well.
@@ -241,7 +241,7 @@
   </section>
 
   <section>
-    <h5>How to set timer's step</h5>
+    <h5><a href="#how-to-set-timer-s-step"></a>How to set timer's step</h5>
     <p>
       Timer's value is rendered each second by default. If it's too fast for
       you, you can set timer's <tag>step</tag>&nbsp;(in&nbsp;seconds):
@@ -274,7 +274,7 @@
   </section>
 
   <section>
-    <h5>Callback argument: the man behind the curtain</h5>
+    <h5><a href="#callback-argument"></a>Callback argument: the man behind the curtain</h5>
     <p>
       As you may noticed, callback functions have&nbsp;<tag>timer</tag> as an
       input argument. It is an instance of the plugin applied to your element,
@@ -301,7 +301,7 @@
   </section>
 
   <section>
-    <h5>The end</h5>
+    <h5><a href="#the-end"></a>The end</h5>
     <p>
       So, here you are. At the end of the documentation for backward timer.
       From now, you may know everything about it. Thanks for reading and
@@ -318,6 +318,14 @@ window.twttr=(function(d,s,id){var t,js,fjs=d.getElementsByTagName(s)[0];if(d.ge
 <script type="text/javascript" src="lib/jquery-backward-timer.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
+
+  $('section h5 a').each(function() {
+    var self = $(this)
+    , name = self.attr('href').slice(1)
+
+    self.append('<i class="fa fa-link"></i>')
+    self.closest('section').before($("<a>", {name: name}))
+  })
 
   /* Example 1 ------------------------------------------------------------- */
   $('#timer_1').backward_timer()
@@ -454,3 +462,4 @@ $(document).ready(function(){
 </html>
 
 <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">

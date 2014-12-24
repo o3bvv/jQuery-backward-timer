@@ -39,11 +39,30 @@ section {
   padding: 0 30px 0 30px;
 }
 
-section h5 {
+section > h5 {
   padding-left: 20px;
   font-weight: bold;
   margin-top: 45px;
   border-bottom: 1px solid #eee;
+}
+
+section > h5 > a,
+section > h5 > a:hover,
+section > h5 > a:active,
+section > h5 > a:visited {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+}
+
+section > h5 > a > i {
+  font-size: 20px;
+  margin-left: -20px;
+  visibility: hidden;
+}
+
+section > h5:hover > a > i {
+  visibility: visible;
 }
 
 p {
