@@ -19,7 +19,7 @@
 <div class="container">
 
   <header class="row">
-    <h2>jQuery-backward-timer v1.1.2</h2>
+    <h2>jQuery-backward-timer v1.1.3</h2>
     <span>Little jQuery plugin which provides backward timer facilities</span>
   </header>
 
@@ -275,6 +275,31 @@
   </section>
 
   <section>
+    <h5><a href="#counting-down-to-infinity"></a>Counting down to infinity</h5>
+    <p>
+      You may be surprised, but this plugin allows you to go on counting below
+      zero. This feature was implemented due to
+      <a href="https://github.com/oblalex/jQuery-backward-timer/issues/6" target="_blank">issue&nbsp;#6</a>.
+    </p>
+    <p>
+      To enable such behaviour, set <tag>stop_at_zero</tag> parameter to
+      <tag>false</tag>:
+    </p>
+    <code data-gist-id="70cb446e6562b164bd5a"
+          data-gist-file="example-7.js"
+          data-gist-hide-footer="true"></code>
+    <p>See how this works:</p>
+    <div class='timer-block'>
+      <div class='controls'>
+        <a href="javascript:void(0)" class="button button-start" id='start_7'>Start</a>
+        <a href="javascript:void(0)" class="button button-cancel" id='cancel_7'>Cancel</a>
+        <a href="javascript:void(0)" class="button button-reset" id='reset_7'>Reset</a>
+      </div>
+      <span id='timer_7' class='timer'>value placeholder</span>
+    </div>
+  </section>
+
+  <section>
     <h5><a href="#callback-argument"></a>Callback argument: the man behind the curtain</h5>
     <p>
       As you may noticed, callback functions have&nbsp;<tag>timer</tag> as an
@@ -290,14 +315,14 @@
       Two of them you are familiar with. They are &nbsp;<tag>target</tag> and
       &nbsp;<tag>seconds_left</tag>. Former is an object the plugin is applied
       to. As you can see, it is a &nbsp;<tag>span</tag> element with an ID of
-      &nbsp;<tag>#timer_6</tag> and with style a class &nbsp;<tag>timer</tag>.
+      &nbsp;<tag>#timer_1</tag> and with a &nbsp;<tag>timer</tag> class.
       Latter is the current value of seconds, which are left before the
       timer is considered to be exhausted. <tag>timeout</tag>&nbsp;is the ID
       of current timer, created by &nbsp;<tag><a href='http://www.w3schools.com/jsref/met_win_settimeout.asp'>setTimeout()</a></tag>
       method. <tag>settings</tag>&nbsp;store output format, initial amount of
-      seconds to count and a couple of callbacks, which were discussed just in
-      the last two examples. <tag>methods</tag>&nbsp;object containes all the
-      public and private methods of the plugin.
+      seconds to count and other stuff, which was discussed in last examples.
+      <tag>methods</tag>&nbsp;object contains all the public and private
+      methods of the plugin.
     </p>
   </section>
 
@@ -454,6 +479,21 @@ $(document).ready(function(){
   })
   $('#reset_6').click(function() {
     $('#timer_6').backward_timer('reset')
+  })
+
+  /* Example 7 ------------------------------------------------------------- */
+  $('#timer_7').backward_timer({
+    stop_at_zero: false
+  })
+
+  $('#start_7').click(function() {
+    $('#timer_7').backward_timer('start')
+  })
+  $('#cancel_7').click(function() {
+    $('#timer_7').backward_timer('cancel')
+  })
+  $('#reset_7').click(function() {
+    $('#timer_7').backward_timer('reset')
   })
 
 })
