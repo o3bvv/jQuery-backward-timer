@@ -109,28 +109,45 @@ tag {
   float: left;
 }
 
-.button-start {
+.button-start,
+.button-start:focus:not(:hover) {
   color: #FFF;
   background-color: #2BD56E;
   border-color: #2BD56E;
 }
 .button-start:hover,
-.button-start:focus {
+.button-start:active {
   color: #FFF;
   background-color: #38B669;
   border-color: #38B669;
 }
 
-.button-cancel {
+.button-cancel,
+.button-cancel:focus:not(:hover) {
   color: #FFF;
   background-color: #EA3C3C;
   border-color: #EA3C3C;
 }
 .button-cancel:hover,
-.button-cancel:focus {
+.button-cancel:active {
   color: #FFF;
   background-color: #D22F2F;
   border-color: #D22F2F;
+}
+
+.button-reset,
+.button-reset:focus:not(:hover) {
+  color: #555;
+  border: 1px solid #bbb;
+}
+.button-reset:hover,
+.button-reset:active {
+  color: #333;
+  border-color: #888;
+}
+
+span.dynamic {
+  margin-left: 20px;
 }
 
 /* GitHub buttons for local needs ------------------------------------------ */

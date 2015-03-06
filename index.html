@@ -19,7 +19,7 @@
 <div class="container">
 
   <header class="row">
-    <h2>jQuery-backward-timer v1.1.3</h2>
+    <h2>jQuery-backward-timer v1.1.4</h2>
     <span>Little jQuery plugin which provides backward timer facilities</span>
   </header>
 
@@ -57,7 +57,8 @@
       <li>Specify timer's timeout.</li>
       <li>Specify timer's step.</li>
       <li>Set output format.</li>
-      <li>Handle timer's events of ticking and exhausting.</li>
+      <li>Allow timer to count down to negative infinity.</li>
+      <li>Handle timer's events of starting, cancellation, exhausting and ticking.</li>
     </ul>
     <p>
       Before you will start using this plugin, make sure you've included
@@ -72,13 +73,13 @@
       timer:
     </p>
     <code data-gist-id="70cb446e6562b164bd5a"
-          data-gist-file="example-0.html"
+          data-gist-file="example-simple.html"
           data-gist-hide-footer="true"></code>
     <p>
       Then you can easily make an initialization:
     </p>
     <code data-gist-id="70cb446e6562b164bd5a"
-          data-gist-file="example-0.js"
+          data-gist-file="example-simple.js"
           data-gist-hide-footer="true"></code>
   </section>
 
@@ -99,18 +100,18 @@
     </p>
     <div class='timer-block'>
       <div class='controls'>
-        <a href="javascript:void(0)" class="button button-start" id='start_1'>Start</a>
-        <a href="javascript:void(0)" class="button button-cancel" id='cancel_1'>Cancel</a>
-        <a href="javascript:void(0)" class="button button-reset" id='reset_1'>Reset</a>
+        <a href="javascript:void(0)" class="button button-start" id='start_default'>Start</a>
+        <a href="javascript:void(0)" class="button button-cancel" id='cancel_default'>Cancel</a>
+        <a href="javascript:void(0)" class="button button-reset" id='reset_default'>Reset</a>
       </div>
-      <span id='timer_1' class='timer'>value placeholder</span>
+      <span id='timer_default' class='timer'>value placeholder</span>
     </div>
     <p>
       The source code for the example above is listed below. Take a look
       at timer's initialization at the line&nbsp;#13.
     </p>
     <code data-gist-id="70cb446e6562b164bd5a"
-          data-gist-file="example-1.html"
+          data-gist-file="example-default.html"
           data-gist-highlight-line="13"
           data-gist-hide-footer="true"></code>
   </section>
@@ -122,16 +123,16 @@
       attribure to the initialization function:
     </p>
     <code data-gist-id="70cb446e6562b164bd5a"
-          data-gist-file="example-2.js"
+          data-gist-file="example-custom-timeout.js"
           data-gist-hide-footer="true"></code>
     <p>See it in action:</p>
     <div class='timer-block'>
       <div class='controls'>
-        <a href="javascript:void(0)" class="button button-start" id='start_2'>Start</a>
-        <a href="javascript:void(0)" class="button button-cancel" id='cancel_2'>Cancel</a>
-        <a href="javascript:void(0)" class="button button-reset" id='reset_2'>Reset</a>
+        <a href="javascript:void(0)" class="button button-start" id='start_custom_timeout'>Start</a>
+        <a href="javascript:void(0)" class="button button-cancel" id='cancel_custom_timeout'>Cancel</a>
+        <a href="javascript:void(0)" class="button button-reset" id='reset_custom_timeout'>Reset</a>
       </div>
-      <span id='timer_2' class='timer'>value placeholder</span>
+      <span id='timer_custom_timeout' class='timer'>value placeholder</span>
     </div>
   </section>
 
@@ -147,16 +148,16 @@
       e.g.
     </p>
     <code data-gist-id="70cb446e6562b164bd5a"
-          data-gist-file="example-3-1.js"
+          data-gist-file="example-output-format-1.js"
           data-gist-hide-footer="true"></code>
     <p>will result into:</p>
     <div class='timer-block'>
       <div class='controls'>
-        <a href="javascript:void(0)" class="button button-start" id='start_3_1'>Start</a>
-        <a href="javascript:void(0)" class="button button-cancel" id='cancel_3_1'>Cancel</a>
-        <a href="javascript:void(0)" class="button button-reset" id='reset_3_1'>Reset</a>
+        <a href="javascript:void(0)" class="button button-start" id='start_output_format_1'>Start</a>
+        <a href="javascript:void(0)" class="button button-cancel" id='cancel_output_format_1'>Cancel</a>
+        <a href="javascript:void(0)" class="button button-reset" id='reset_output_format_1'>Reset</a>
       </div>
-      <span id='timer_3_1' class='timer'>value placeholder</span>
+      <span id='timer_output_format_1' class='timer'>value placeholder</span>
     </div>
     <p>
       If you want to display days explicitly, then you have to change output
@@ -165,30 +166,79 @@
       format for handling days. Hours will have leading zero now.
     </p>
     <code data-gist-id="70cb446e6562b164bd5a"
-          data-gist-file="example-3-2.js"
+          data-gist-file="example-output-format-2.js"
           data-gist-hide-footer="true"></code>
     <div class='timer-block'>
       <div class='controls'>
-        <a href="javascript:void(0)" class="button button-start" id='start_3_2'>Start</a>
-        <a href="javascript:void(0)" class="button button-cancel" id='cancel_3_2'>Cancel</a>
-        <a href="javascript:void(0)" class="button button-reset" id='reset_3_2'>Reset</a>
+        <a href="javascript:void(0)" class="button button-start" id='start_output_format_2'>Start</a>
+        <a href="javascript:void(0)" class="button button-cancel" id='cancel_output_format_2'>Cancel</a>
+        <a href="javascript:void(0)" class="button button-reset" id='reset_output_format_2'>Reset</a>
       </div>
-      <span id='timer_3_2' class='timer'>value placeholder</span>
+      <span id='timer_output_format_2' class='timer'>value placeholder</span>
     </div>
     <p>
       Actually, you may use any format and set placeholders for time
       intervals in any order:
     </p>
     <code data-gist-id="70cb446e6562b164bd5a"
-          data-gist-file="example-3-3.js"
+          data-gist-file="example-output-format-3.js"
           data-gist-hide-footer="true"></code>
     <div class='timer-block'>
       <div class='controls'>
-        <a href="javascript:void(0)" class="button button-start" id='start_3_3'>Start</a>
-        <a href="javascript:void(0)" class="button button-cancel" id='cancel_3_3'>Cancel</a>
-        <a href="javascript:void(0)" class="button button-reset" id='reset_3_3'>Reset</a>
+        <a href="javascript:void(0)" class="button button-start" id='start_output_format_3'>Start</a>
+        <a href="javascript:void(0)" class="button button-cancel" id='cancel_output_format_3'>Cancel</a>
+        <a href="javascript:void(0)" class="button button-reset" id='reset_output_format_3'>Reset</a>
       </div>
-      <span id='timer_3_3' class='timer'>value placeholder</span>
+      <span id='timer_output_format_3' class='timer'>value placeholder</span>
+    </div>
+  </section>
+
+  <section>
+    <h5><a href="#handling-start-event"></a>Handling start event</h5>
+    <p>
+      For some reason you may need to trigger some action when your timer
+      starts. If you do not want to call it every time manually, you may set an
+      &nbsp;<tag>on_start</tag> callback function during plugin's
+      initialization:
+    </p>
+    <code data-gist-id="70cb446e6562b164bd5a"
+          data-gist-file="example-on-start.js"
+          data-gist-hide-footer="true"></code>
+    <p>
+      Callback function accepts&nbsp;<tag>timer</tag> argument, which is an
+      instance of timer plugin. Its properties will be discussed later. Now
+      note, that it can access&nbsp;<tag>target</tag> property, which in this
+      case is equal to calling&nbsp;<tag>$('#timer_on_start')</tag>.
+    </p>
+    <div class='timer-block'>
+      <div class='controls'>
+        <a href="javascript:void(0)" class="button button-start" id='start_on_start'>Start</a>
+        <a href="javascript:void(0)" class="button button-cancel" id='cancel_on_start'>Cancel</a>
+        <a href="javascript:void(0)" class="button button-reset" id='reset_on_start'>Reset</a>
+      </div>
+      <span id='timer_on_start' class='timer'>value placeholder</span>
+    </div>
+  </section>
+
+  <section>
+    <h5><a href="#handling-event-of-cancellation"></a>Handling event of cancellation</h5>
+    <p>
+      You may also need to trigger some action when timer is being cancelled.
+      Here&nbsp;<tag>on_cancel</tag> callback will help you:
+    </p>
+    <code data-gist-id="70cb446e6562b164bd5a"
+          data-gist-file="example-on-cancel.js"
+          data-gist-hide-footer="true"></code>
+    <p>
+      And this is hot it works:
+    </p>
+    <div class='timer-block'>
+      <div class='controls'>
+        <a href="javascript:void(0)" class="button button-start" id='start_on_cancel'>Start</a>
+        <a href="javascript:void(0)" class="button button-cancel" id='cancel_on_cancel'>Cancel</a>
+        <a href="javascript:void(0)" class="button button-reset" id='reset_on_cancel'>Reset</a>
+      </div>
+      <span id='timer_on_cancel' class='timer'>value placeholder</span>
     </div>
   </section>
 
@@ -196,25 +246,21 @@
     <h5><a href="#handling-event-of-exhausting"></a>Handling event of exhausting</h5>
     <p>
       Very probably, you will want to do some action, when your timer is
-      exhausted. To make so, you can set&nbsp;<tag>on_exhausted</tag> callback
-      function during plugin's initialization:
+      exhausted. Use&nbsp;<tag>on_exhausted</tag> callback for this:
     </p>
     <code data-gist-id="70cb446e6562b164bd5a"
-          data-gist-file="example-4.js"
+          data-gist-file="example-on-exhausted.js"
           data-gist-hide-footer="true"></code>
     <p>
-      Callback function accepts&nbsp;<tag>timer</tag> argument, which is an
-      instance of timer plugin. Its properties will be discussed later. Now
-      note, that it can access&nbsp;<tag>target</tag> property, which in this
-      case is equal to calling&nbsp;<tag>$('#timer_4')</tag>.
+      Let's see how this works:
     </p>
     <div class='timer-block'>
       <div class='controls'>
-        <a href="javascript:void(0)" class="button button-start" id='start_4'>Start</a>
-        <a href="javascript:void(0)" class="button button-cancel" id='cancel_4'>Cancel</a>
-        <a href="javascript:void(0)" class="button button-reset" id='reset_4'>Reset</a>
+        <a href="javascript:void(0)" class="button button-start" id='start_on_exhausted'>Start</a>
+        <a href="javascript:void(0)" class="button button-cancel" id='cancel_on_exhausted'>Cancel</a>
+        <a href="javascript:void(0)" class="button button-reset" id='reset_on_exhausted'>Reset</a>
       </div>
-      <span id='timer_4' class='timer'>value placeholder</span>
+      <span id='timer_on_exhausted' class='timer'>value placeholder</span>
     </div>
   </section>
 
@@ -225,7 +271,7 @@
       working, you can set a callback for that event as well.
     </p>
     <code data-gist-id="70cb446e6562b164bd5a"
-          data-gist-file="example-5.js"
+          data-gist-file="example-on-tick.js"
           data-gist-hide-footer="true"></code>
     <p>
       This will change color of the timer's value each second. Give it a
@@ -233,11 +279,11 @@
     </p>
     <div class='timer-block'>
       <div class='controls'>
-        <a href="javascript:void(0)" class="button button-start" id='start_5'>Start</a>
-        <a href="javascript:void(0)" class="button button-cancel" id='cancel_5'>Cancel</a>
-        <a href="javascript:void(0)" class="button button-reset" id='reset_5'>Reset</a>
+        <a href="javascript:void(0)" class="button button-start" id='start_on_tick'>Start</a>
+        <a href="javascript:void(0)" class="button button-cancel" id='cancel_on_tick'>Cancel</a>
+        <a href="javascript:void(0)" class="button button-reset" id='reset_on_tick'>Reset</a>
       </div>
-      <span id='timer_5' class='timer'>value placeholder</span>
+      <span id='timer_on_tick' class='timer'>value placeholder</span>
     </div>
   </section>
 
@@ -248,7 +294,7 @@
       you, you can set timer's <tag>step</tag>&nbsp;(in&nbsp;seconds):
     </p>
     <code data-gist-id="70cb446e6562b164bd5a"
-          data-gist-file="example-6.js"
+          data-gist-file="example-custom-step.js"
           data-gist-hide-footer="true"></code>
     <p>
       Here we have a timer which works for 1 minute and renders own value each
@@ -256,11 +302,11 @@
     </p>
     <div class='timer-block'>
       <div class='controls'>
-        <a href="javascript:void(0)" class="button button-start" id='start_6'>Start</a>
-        <a href="javascript:void(0)" class="button button-cancel" id='cancel_6'>Cancel</a>
-        <a href="javascript:void(0)" class="button button-reset" id='reset_6'>Reset</a>
+        <a href="javascript:void(0)" class="button button-start" id='start_custom_step'>Start</a>
+        <a href="javascript:void(0)" class="button button-cancel" id='cancel_custom_step'>Cancel</a>
+        <a href="javascript:void(0)" class="button button-reset" id='reset_custom_step'>Reset</a>
       </div>
-      <span id='timer_6' class='timer'>value placeholder</span>
+      <span id='timer_custom_step' class='timer'>value placeholder</span>
     </div>
     <p>
       Number of seconds is usually multiple of timer's step. I.e., if we set
@@ -286,16 +332,16 @@
       <tag>false</tag>:
     </p>
     <code data-gist-id="70cb446e6562b164bd5a"
-          data-gist-file="example-7.js"
+          data-gist-file="example-stop-at-zero.js"
           data-gist-hide-footer="true"></code>
     <p>See how this works:</p>
     <div class='timer-block'>
       <div class='controls'>
-        <a href="javascript:void(0)" class="button button-start" id='start_7'>Start</a>
-        <a href="javascript:void(0)" class="button button-cancel" id='cancel_7'>Cancel</a>
-        <a href="javascript:void(0)" class="button button-reset" id='reset_7'>Reset</a>
+        <a href="javascript:void(0)" class="button button-start" id='start_stop_at_zero'>Start</a>
+        <a href="javascript:void(0)" class="button button-cancel" id='cancel_stop_at_zero'>Cancel</a>
+        <a href="javascript:void(0)" class="button button-reset" id='reset_stop_at_zero'>Reset</a>
       </div>
-      <span id='timer_7' class='timer'>value placeholder</span>
+      <span id='timer_stop_at_zero' class='timer'>value placeholder</span>
     </div>
   </section>
 
@@ -327,6 +373,17 @@
   </section>
 
   <section>
+    <h5><a href="#credits"></a>Credits</h5>
+    <p>
+      <a href="https://github.com/oblalex">Alexander Oblovatniy</a>
+      (<a href="https://twitter.com/oblalex">@oblalex</a>) has created
+      <tag>jQuery-backward-timer</tag> and
+      <a href="https://github.com/oblalex/jQuery-backward-timer/graphs/contributors">these fine people</a>
+      have contributed.
+    </p>
+  </section>
+
+  <section>
     <h5><a href="#the-end"></a>The end</h5>
     <p>
       So, here you are. At the end of the documentation for backward timer.
@@ -353,149 +410,190 @@ $(document).ready(function(){
     self.closest('section').before($("<a>", {name: name}))
   })
 
-  /* Example 1 ------------------------------------------------------------- */
-  $('#timer_1').backward_timer()
+  /* Example 'default' ----------------------------------------------------- */
+  $('#timer_default').backward_timer()
 
-  $('#start_1').click(function() {
-    $('#timer_1').backward_timer('start')
+  $('#start_default').click(function() {
+    $('#timer_default').backward_timer('start')
   })
-  $('#cancel_1').click(function() {
-    $('#timer_1').backward_timer('cancel')
+  $('#cancel_default').click(function() {
+    $('#timer_default').backward_timer('cancel')
   })
-  $('#reset_1').click(function() {
-    $('#timer_1').backward_timer('reset')
+  $('#reset_default').click(function() {
+    $('#timer_default').backward_timer('reset')
   })
 
-  /* Example 2 ------------------------------------------------------------- */
-  $('#timer_2').backward_timer({
+  /* Example 'custom_timeout' ---------------------------------------------- */
+  $('#timer_custom_timeout').backward_timer({
     seconds: 45296
   })
 
-  $('#start_2').click(function() {
-    $('#timer_2').backward_timer('start')
+  $('#start_custom_timeout').click(function() {
+    $('#timer_custom_timeout').backward_timer('start')
   })
-  $('#cancel_2').click(function() {
-    $('#timer_2').backward_timer('cancel')
+  $('#cancel_custom_timeout').click(function() {
+    $('#timer_custom_timeout').backward_timer('cancel')
   })
-  $('#reset_2').click(function() {
-    $('#timer_2').backward_timer('reset')
+  $('#reset_custom_timeout').click(function() {
+    $('#timer_custom_timeout').backward_timer('reset')
   })
 
-  /* Example 3.1 ----------------------------------------------------------- */
-  $('#timer_3_1').backward_timer({
+  /* Example 'output_format (1)' ------------------------------------------- */
+  $('#timer_output_format_1').backward_timer({
     seconds: 1417539
   })
 
-  $('#start_3_1').click(function() {
-    $('#timer_3_1').backward_timer('start')
+  $('#start_output_format_1').click(function() {
+    $('#timer_output_format_1').backward_timer('start')
   })
-  $('#cancel_3_1').click(function() {
-    $('#timer_3_1').backward_timer('cancel')
+  $('#cancel_output_format_1').click(function() {
+    $('#timer_output_format_1').backward_timer('cancel')
   })
-  $('#reset_3_1').click(function() {
-    $('#timer_3_1').backward_timer('reset')
+  $('#reset_output_format_1').click(function() {
+    $('#timer_output_format_1').backward_timer('reset')
   })
 
-  /* Example 3.2 ----------------------------------------------------------- */
-  $('#timer_3_2').backward_timer({
+  /* Example 'output_format (2)' ------------------------------------------- */
+  $('#timer_output_format_2').backward_timer({
     seconds: 1417539,
     format: 'd%d h%:m%:s%'
   })
 
-  $('#start_3_2').click(function() {
-    $('#timer_3_2').backward_timer('start')
+  $('#start_output_format_2').click(function() {
+    $('#timer_output_format_2').backward_timer('start')
   })
-  $('#cancel_3_2').click(function() {
-    $('#timer_3_2').backward_timer('cancel')
+  $('#cancel_output_format_2').click(function() {
+    $('#timer_output_format_2').backward_timer('cancel')
   })
-  $('#reset_3_2').click(function() {
-    $('#timer_3_2').backward_timer('reset')
+  $('#reset_output_format_2').click(function() {
+    $('#timer_output_format_2').backward_timer('reset')
   })
 
-  /* Example 3.3 ----------------------------------------------------------- */
-  $('#timer_3_3').backward_timer({
+  /* Example 'output_format (3)' ------------------------------------------- */
+  $('#timer_output_format_3').backward_timer({
     seconds: 1417539,
     format: '{s% sec} [h% h] |d% d| <m% min>'
   })
 
-  $('#start_3_3').click(function() {
-    $('#timer_3_3').backward_timer('start')
+  $('#start_output_format_3').click(function() {
+    $('#timer_output_format_3').backward_timer('start')
   })
-  $('#cancel_3_3').click(function() {
-    $('#timer_3_3').backward_timer('cancel')
+  $('#cancel_output_format_3').click(function() {
+    $('#timer_output_format_3').backward_timer('cancel')
   })
-  $('#reset_3_3').click(function() {
-    $('#timer_3_3').backward_timer('reset')
+  $('#reset_output_format_3').click(function() {
+    $('#timer_output_format_3').backward_timer('reset')
   })
 
-  /* Example 4 ------------------------------------------------------------- */
-  $('#timer_4').backward_timer({
+  /* Example 'on_start' ---------------------------------------------------- */
+  $('#timer_on_start').backward_timer({
+    on_start: function(timer) {
+      var node = $("<span>", {text: 'Timer has started', class: 'dynamic'})
+      timer.target.after(node)
+      node.fadeOut(1500, function() {
+        node.remove()
+      })
+    }
+  })
+
+  $('#start_on_start').click(function() {
+    $('#timer_on_start').backward_timer('start')
+  })
+  $('#cancel_on_start').click(function() {
+    $('#timer_on_start').backward_timer('cancel')
+  })
+  $('#reset_on_start').click(function() {
+    $('#timer_on_start').backward_timer('reset')
+  })
+
+  /* Example 'on_cancel' --------------------------------------------------- */
+  $('#timer_on_cancel').backward_timer({
+    on_cancel: function(timer) {
+      var node = $("<span>", {text: 'Timer was cancelled', class: 'dynamic'})
+      timer.target.after(node)
+      node.fadeOut(1500, function() {
+        node.remove()
+      })
+    }
+  })
+
+  $('#start_on_cancel').click(function() {
+    $('#timer_on_cancel').backward_timer('start')
+  })
+  $('#cancel_on_cancel').click(function() {
+    $('#timer_on_cancel').backward_timer('cancel')
+  })
+  $('#reset_on_cancel').click(function() {
+    $('#timer_on_cancel').backward_timer('reset')
+  })
+
+  /* Example 'on_exhausted' ------------------------------------------------ */
+  $('#timer_on_exhausted').backward_timer({
     on_exhausted: function(timer) {
       timer.target.text('I am exhausted. Reset me!')
     }
   })
 
-  $('#start_4').click(function() {
-    $('#timer_4').backward_timer('start')
+  $('#start_on_exhausted').click(function() {
+    $('#timer_on_exhausted').backward_timer('start')
   })
-  $('#cancel_4').click(function() {
-    $('#timer_4').backward_timer('cancel')
+  $('#cancel_on_exhausted').click(function() {
+    $('#timer_on_exhausted').backward_timer('cancel')
   })
-  $('#reset_4').click(function() {
-    $('#timer_4').backward_timer('reset')
+  $('#reset_on_exhausted').click(function() {
+    $('#timer_on_exhausted').backward_timer('reset')
   })
 
-  /* Example 5 ------------------------------------------------------------- */
-  $('#timer_5').backward_timer({
+  /* Example 'on_tick' ----------------------------------------------------- */
+  $('#timer_on_tick').backward_timer({
     on_tick: function(timer) {
       var color = ((timer.seconds_left % 2) == 0)
-        ? "#F82828"
-        : "#009CFF"
+                  ? "#F82828"
+                  : "#009CFF"
       timer.target.css('color', color)
     }
   })
 
-  $('#start_5').click(function() {
-    $('#timer_5').backward_timer('start')
+  $('#start_on_tick').click(function() {
+    $('#timer_on_tick').backward_timer('start')
   })
-  $('#cancel_5').click(function() {
-    $('#timer_5').backward_timer('cancel')
+  $('#cancel_on_tick').click(function() {
+    $('#timer_on_tick').backward_timer('cancel')
   })
-  $('#reset_5').click(function() {
-    $('#timer_5').backward_timer('reset').css('color', '')
+  $('#reset_on_tick').click(function() {
+    $('#timer_on_tick').backward_timer('reset').css('color', '')
   })
 
-  /* Example 6 ------------------------------------------------------------- */
-  $('#timer_6').backward_timer({
+  /* Example 'custom_step' ------------------------------------------------- */
+  $('#timer_custom_step').backward_timer({
     seconds: 60,
     step: 5
   })
 
-  $('#start_6').click(function() {
-    $('#timer_6').backward_timer('start')
+  $('#start_custom_step').click(function() {
+    $('#timer_custom_step').backward_timer('start')
   })
-  $('#cancel_6').click(function() {
-    $('#timer_6').backward_timer('cancel')
+  $('#cancel_custom_step').click(function() {
+    $('#timer_custom_step').backward_timer('cancel')
   })
-  $('#reset_6').click(function() {
-    $('#timer_6').backward_timer('reset')
+  $('#reset_custom_step').click(function() {
+    $('#timer_custom_step').backward_timer('reset')
   })
 
-  /* Example 7 ------------------------------------------------------------- */
-  $('#timer_7').backward_timer({
+  /* Example 'stop_at_zero' ------------------------------------------------ */
+  $('#timer_stop_at_zero').backward_timer({
     stop_at_zero: false
   })
 
-  $('#start_7').click(function() {
-    $('#timer_7').backward_timer('start')
+  $('#start_stop_at_zero').click(function() {
+    $('#timer_stop_at_zero').backward_timer('start')
   })
-  $('#cancel_7').click(function() {
-    $('#timer_7').backward_timer('cancel')
+  $('#cancel_stop_at_zero').click(function() {
+    $('#timer_stop_at_zero').backward_timer('cancel')
   })
-  $('#reset_7').click(function() {
-    $('#timer_7').backward_timer('reset')
+  $('#reset_stop_at_zero').click(function() {
+    $('#timer_stop_at_zero').backward_timer('reset')
   })
-
 })
 </script>
 
