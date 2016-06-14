@@ -373,6 +373,32 @@
   </section>
 
   <section>
+    <h5><a href="#how-to-set-custom-wrappers"></a>How to set custom wrappers</h5>
+    <p>
+      To specify custom wrappers for the timer, you needs to pass &nbsp;<tag>use_wrappers</tag> bool and <tag>wrappers</tag> object
+      attribute to the initialization function:
+    </p>
+    <code data-gist-id="056e57d15fa18313b696053b16ea425e"
+          data-gist-file="example-custom-wrapper.js"
+          data-gist-hide-footer="true"></code>
+    <p>See it in action:</p>
+    <div class='timer-block'>
+      <div class='controls'>
+        <a href="javascript:void(0)" class="button button-start" id='start_custom_timeout_kapsa'>Start</a>
+        <a href="javascript:void(0)" class="button button-cancel" id='cancel_custom_timeout_kapsa'>Cancel</a>
+        <a href="javascript:void(0)" class="button button-reset" id='reset_custom_timeout_kapsa'>Reset</a>
+      </div>
+      <span id='timer-custom-w-wrapper' class='timer'>
+          <div class="dash hours_dash"><span class="digit"></span></div>
+          <div class="timer_sep">:</div>
+          <div class="dash minutes_dash"><span class="digit"></span></div>
+          <div class="timer_sep">:</div>
+          <div class="dash seconds_dash"><span class="digit"></span></div>
+      </span>
+    </div>
+  </section>
+
+  <section>
     <h5><a href="#credits"></a>Credits</h5>
     <p>
       <a href="https://github.com/oblalex">Alexander Oblovatniy</a>
@@ -593,6 +619,27 @@ $(document).ready(function(){
   })
   $('#reset_stop_at_zero').click(function() {
     $('#timer_stop_at_zero').backward_timer('reset')
+  })
+
+  /* Example 'custom_wrappers' ---------------------------------------------- */
+  $('#timer-custom-w-wrapper').backward_timer({
+    seconds: 45296
+    , use_wrapper: true
+    , wrappers: {
+      hours: '.hours_dash .digit'
+      , minutes: '.minutes_dash .digit'
+      , seconds: '.seconds_dash .digit'
+    }
+  })
+
+  $('#start_custom_timeout_kapsa').click(function() {
+    $('#timer-custom-w-wrapper').backward_timer('start')
+  })
+  $('#cancel_custom_timeout_kapsa').click(function() {
+    $('#timer-custom-w-wrapper').backward_timer('cancel')
+  })
+  $('#reset_custom_timeout_kapsa').click(function() {
+    $('#timer-custom-w-wrapper').backward_timer('reset')
   })
 })
 </script>

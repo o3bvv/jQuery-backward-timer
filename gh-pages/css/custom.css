@@ -220,3 +220,15 @@ span.dynamic {
 .gh-btn:active .gh-ico {
   background-position: -14px 0;
 }
+
+
+#timer-custom-w-wrapper .dash {
+    width: 12px;
+    margin-right: 2px;
+    display: inline-block;
+}
+
+#timer-custom-w-wrapper .timer_sep {
+    width: 2px;
+    display: inline-block;
+}
